@@ -22,3 +22,9 @@ pico_enable_stdio_usb(blink 1)
 pico_enable_stdio_uart(blink 0)
 
 stdio_init_all();
+
+
+----------------------
+Links uteis 
+
+https://github.com/raspberrypi/pico-sdk/tree/master
