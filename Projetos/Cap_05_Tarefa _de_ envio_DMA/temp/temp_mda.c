@@ -1,7 +1,4 @@
-/*
- * Projeto: Leitura da Temperatura Interna com DMA no Raspberry Pi Pico W
- * Exibição em OLED SSD1306
- */
+
 
 #include <stdio.h>
 #include <string.h>
