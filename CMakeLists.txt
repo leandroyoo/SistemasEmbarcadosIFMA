@@ -28,35 +28,30 @@ set(PICO_BOARD pico_w CACHE STRING "Board type")
 # Pull in Raspberry Pi Pico SDK (must be before project)
 include(pico_sdk_import.cmake)
 
-project(semaforo C CXX ASM)
+project(TinyUSB_CDC C CXX ASM)
 
 # Initialise the Raspberry Pi Pico SDK
 pico_sdk_init()
 
 # Add executable. Default name is the project name, version 0.1
 
-add_executable(semaforo semaforo.c )
+add_executable(TinyUSB_CDC TinyUSB_CDC.c )
 
-pico_set_program_name(semaforo "semaforo")
-pico_set_program_version(semaforo "0.1")
+pico_set_program_name(TinyUSB_CDC "TinyUSB_CDC")
+pico_set_program_version(TinyUSB_CDC "0.1")
 
 # Modify the below lines to enable/disable output over UART/USB
-pico_enable_stdio_uart(semaforo 0)
-pico_enable_stdio_usb(semaforo 1)
+pico_enable_stdio_uart(TinyUSB_CDC 0)
+pico_enable_stdio_usb(TinyUSB_CDC 1)
 
 # Add the standard library to the build
-target_link_libraries(semaforo
-        pico_stdlib)
+target_link_libraries(TinyUSB_CDC pico_stdlib hardware_uart)
 
 # Add the standard include files to the build
-target_include_directories(semaforo PRIVATE
-        ${CMAKE_CURRENT_LIST_DIR}
-)
+target_include_directories(TinyUSB_CDC PRIVATE ${CMAKE_CURRENT_LIST_DIR})
 
 # Add any user requested libraries
-target_link_libraries(semaforo 
-        
-        )
+target_link_libraries(TinyUSB_CDC)
 
-pico_add_extra_outputs(semaforo)
+pico_add_extra_outputs(TinyUSB_CDC)
 
